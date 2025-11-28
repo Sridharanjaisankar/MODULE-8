@@ -1,58 +1,34 @@
-# 🎓 Hackerrank:Python Program to Find Students with the Second Lowest Grade
+# 🏆 Hackerrank:Runner-Up Score Finder in Python
 
-This program reads student names and their corresponding grades, identifies the **second lowest grade**, and prints the names of all students who have that grade in **alphabetical order**.
-
----
-
-## 🎯 Aim
-
-To write a Python program to:
-- Read a list of students and their grades.
-- Identify the second lowest grade.
-- Print the names of students who have that grade, sorted alphabetically.
+## 🎯 AIM:
+To write a Python program that takes a list of scores from participants and finds the **runner-up score** (i.e., the second-highest score), eliminating any duplicates.
 
 ---
 
-## 🧠 Algorithm
+## 🧠 ALGORITHM:
 
-1. **Read** an integer `n` representing the number of students.
-2. **Read** each student’s name and grade, and store them as a sublist inside a list.
-3. **Extract** all the grades and sort them.
-4. **Identify** the second lowest grade from the sorted grade list.
-5. **Collect** names of all students whose grade matches the second lowest grade.
-6. **Sort** the names alphabetically.
-7. **Print** each name on a new line.
+1. **Start**
+2. Create a variable `n` and get its value from the user (number of participants)
+3. Read the list of `n` scores from the user using `input().split()` and convert them to integers
+4. Store the scores in a list
+5. Use `set()` to remove any duplicate scores
+6. Convert the set back to a list and sort it in ascending order
+7. Print the second-last element of the sorted list (i.e., the runner-up score)
+8. **Stop**
 
 ---
 
-## 💻  Program
-
+## 💻 PROGRAM:
 ```
-n = int(input("Enter the number of students: "))
-students = []
-
-# Read student names and grades
-for _ in range(n):
-    name = input("Enter student's name: ")
-    grade = float(input("Enter student's grade: "))
-    students.append([name, grade])
-
-# Extract and sort the grades
-grades = sorted(set([student[1] for student in students]))
-
-# Identify the second lowest grade
-second_lowest_grade = grades[1]
-
-# Collect names of students with the second lowest grade
-second_lowest_students = sorted([student[0] for student in students if student[1] == second_lowest_grade])
-
-# Print the sorted names
-for name in second_lowest_students:
-    print(name)
+n = int(input())
+scores = list(map(int, input().split()))
+unique_scores = list(set(scores))
+unique_scores.sort()
+print(unique_scores[-2])
 ```
-## Output
-![image](https://github.com/user-attachments/assets/a0bb7bf2-9dc0-4280-8749-2104222d4b5a)
 
-## Result
+## OUTPUT
+![image](https://github.com/user-attachments/assets/681586b6-030a-499a-9766-817d90cba0a1)
 
+## RESULT
 Thus,the program is executed successfully
